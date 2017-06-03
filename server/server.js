@@ -1,3 +1,4 @@
+global.navigator = { userAgent: 'all' };
 import Express from 'express';
 import compression from 'compression';
 import mongoose from 'mongoose';

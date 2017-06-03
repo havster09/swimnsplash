@@ -1,5 +1,8 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+
+
 
 // Import Style
 import styles from './App.css';
@@ -13,6 +16,12 @@ import Footer from './components/Footer/Footer';
 // Import Actions
 import { toggleAddPost } from './AppActions';
 import { switchLanguage } from '../../modules/Intl/IntlActions';
+
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+
+import injectTapEventPlugin from 'react-tap-event-plugin';
+injectTapEventPlugin();
+
 
 export class App extends Component {
   constructor(props) {
@@ -30,12 +39,13 @@ export class App extends Component {
 
   render() {
     return (
+      <MuiThemeProvider>
       <div>
         {this.state.isMounted && !window.devToolsExtension && process.env.NODE_ENV === 'development' && <DevTools />}
         <div>
           <Helmet
-            title="MERN Starter - Blog App"
-            titleTemplate="%s - Blog App"
+            title="Splash 'n' Swim"
+            titleTemplate="%s - Book a swimming lesson and learn a skill for life."
             meta={[
               { charset: 'utf-8' },
               {
@@ -48,6 +58,7 @@ export class App extends Component {
               },
             ]}
           />
+
           <Header
             switchLanguage={lang => this.props.dispatch(switchLanguage(lang))}
             intl={this.props.intl}
@@ -59,6 +70,7 @@ export class App extends Component {
           <Footer />
         </div>
       </div>
+      </MuiThemeProvider>
     );
   }
 }

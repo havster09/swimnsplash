@@ -1,7 +1,24 @@
 .header {
-  background: #eee url('../../header-bk.png') center;
+  background: #eee url('../../../../assets/images/pool-water-design-inspiration-140.jpg') center;
   background-size: cover;
   border-bottom: 1px solid #ccc;
+}
+
+.logo {
+  width: 100%;
+  max-width:200px;
+  margin: 0 auto;
+  display: block;
+}
+
+.tagline {
+  margin:1em auto;
+  font-size: 1.3em;
+}
+
+.max_500 {
+  max-width:500px;
+  margin:0 auto;
 }
 
 .content {

@@ -1,22 +1,36 @@
-import React, { PropTypes } from 'react';
+import React  from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router';
 import { FormattedMessage } from 'react-intl';
 
 // Import Style
 import styles from './PostListItem.css';
+import {Card, CardActions, CardHeader, CardMedia, CardText, CardTitle, FlatButton} from "material-ui";
+
+// Import Images
+import heroImage from 'assets/images/north-sydney-pool.jpg';
 
 function PostListItem(props) {
   return (
     <div className={styles['single-post']}>
-      <h3 className={styles['post-title']}>
-        <Link to={`/posts/${props.post.slug}-${props.post.cuid}`} >
-          {props.post.title}
-        </Link>
-      </h3>
-      <p className={styles['author-name']}><FormattedMessage id="by" /> {props.post.name}</p>
-      <p className={styles['post-desc']}>{props.post.content}</p>
-      <p className={styles['post-action']}><a href="#" onClick={props.onDelete}><FormattedMessage id="deletePost" /></a></p>
-      <hr className={styles.divider} />
+      <Card>
+        <CardMedia>
+          <img src={heroImage} />
+        </CardMedia>
+        <div>
+          <Link to={`/posts/${props.post.slug}-${props.post.cuid}`}>
+            <CardTitle title={props.post.title} />
+          </Link>
+
+          <CardText>
+            {props.post.content}
+          </CardText>
+          <CardActions>
+            <FlatButton label="More Info" />
+          </CardActions>
+          {/*<p className={styles['post-action']}><a href="#" onClick={props.onDelete}><FormattedMessage id="deletePost" /></a></p>*/}
+        </div>
+      </Card>
     </div>
   );
 }
